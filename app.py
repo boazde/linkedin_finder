@@ -13,17 +13,19 @@ def download_csv(df,fname):
 def main():
     st.title('Linkedin Finder')
 
-    st.header('This app get a spreadsheet with prospects and find thier Linkedin urls')
+    st.header('Find Linkedin urls from a list of prospects')
 
 
-    uploaded_file = st.file_uploader("Upload a file with Name and company")
+    uploaded_file = st.file_uploader("Upload a spreadsheet file of First Name; Last Name ;Company")
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
         st.write(df)
         st.write("There are " , len(df.index)," items in the file" )
-        if st.button('Get the prospects'):
-            st.write('Working on the first 5 prospects')
-            df = get_df_url(df,5)
+        max_prospects = 5
+        if st.button('Get prospects'):
+            st.write('Working on the first '+ str(max_prospects) +' prospects')
+            df = get_df_url(df,max_prospects)
+            st.write(df)
             st.markdown(download_csv(df,'prospects.csv'), unsafe_allow_html=True)
 
 
