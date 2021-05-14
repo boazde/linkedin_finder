@@ -13,7 +13,7 @@ def download_csv(df,fname):
 def main():
     st.title('Linkedin Finder')
 
-    st.header('Find Linkedin urls from a list of prospects')
+    st.header('Generate a list of Linkedin urls from a list of leads')
 
 
     uploaded_file = st.file_uploader("Upload a spreadsheet file of First Name; Last Name ;Company")
@@ -21,12 +21,15 @@ def main():
         df = pd.read_csv(uploaded_file)
         st.write(df)
         st.write("There are " , len(df.index)," items in the file" )
-        max_prospects = 5
-        if st.button('Get prospects'):
-            st.write('Working on the first '+ str(max_prospects) +' prospects')
-            df = get_df_url(df,max_prospects)
+        max_leads = 5
+        if st.button('Get leads (Free)'):
+            st.write('Working on the first '+ str(max_leads) +' leads')
+            df = get_df_url(df,max_leads)
             st.write(df)
-            st.markdown(download_csv(df,'prospects.csv'), unsafe_allow_html=True)
+            st.markdown(download_csv(df,'linkedin_finder.csv'), unsafe_allow_html=True)
+        if st.button('Get leads (Premium)'):
+            st.write('Send email to boaz@descalo.com')
+
 
 
 if __name__ == "__main__":
