@@ -28,7 +28,8 @@ def print_urls(urls):
 
 def get_df_url(df, max_rows):
     df=df.head(max_rows)
-    df['linkedin'] =df.apply(lambda row : parse_linkedin_url(get_google_urls(row['First Name']+ row['Last Name']+row['Company']+ 'linkedin')), axis = 1)
+    #df['linkedin'] =df.apply(lambda row : parse_linkedin_url(get_google_urls(row['First Name']+ row['Last Name']+row['Company']+ 'linkedin')), axis = 1)
+    df['linkedin'] =df.apply(lambda row : parse_linkedin_url(get_google_urls(row[0]+row[1]+row[2] + '   linkedin')), axis = 1)
     return df
 
 
