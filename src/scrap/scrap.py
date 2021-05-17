@@ -10,7 +10,7 @@ except ImportError:
 
 
 def get_linkedin_url(query):
-    urls = search(query, tld="com", num=10, stop=10, pause=1)
+    urls = search(query, tld="com", num=10, stop=10, pause=2)
     url=''
     for u in urls:    
         o = urlparse(u)    
@@ -20,7 +20,7 @@ def get_linkedin_url(query):
     return url
 
 def get_google_urls(query):
-    urls = search(query, tld="com", num=10, stop=10, pause=1)
+    urls = search(query, tld="com", num=10, stop=10, pause=2)
     for a in urls:
         print(a)
 
