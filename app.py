@@ -21,13 +21,14 @@ def main():
         df = pd.read_csv(uploaded_file)
         st.write(df)
         st.write("There are " , len(df.index)," items in the file" )
-        max_leads = 5
         if st.button('Get leads (Free)'):
+            max_leads = 5
             st.write('Working on the first '+ str(max_leads) +' leads')
             df = get_df_url(df,max_leads)
             st.write(df)
             st.markdown(download_csv(df,'linkedin_finder.csv'), unsafe_allow_html=True)
         if st.button('Get leads (Premium)'):
+            max_leads = 100
             email = st.text_input('Email Address')
             st.write(email)
             df = get_df_url(df,max_leads)
