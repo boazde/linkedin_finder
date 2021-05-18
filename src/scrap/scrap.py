@@ -32,7 +32,7 @@ def get_df_url(df, max_rows):
 
 def main():
     df = pd.read_csv('data.csv')
-    get_df_url(df,5)
+    df = get_df_url(df,100)
     df.to_csv('data_out.csv')
 
 
