@@ -29,7 +29,7 @@ def main():
         st.write("There are " , len(df.index)," items in the file" )
         if st.button('Get leads (Free)'):
             max_leads = 50
-            st.write('Working on the first '+ str(max_leads) +' leads')
+            st.write('Working on the first '+ str(min(max_leads,len(df.index))) +' leads')
             df = get_df_url(df,max_leads)
             st.write(df)
             st.markdown(download_csv(df,'linkedin_finder.csv',"Download csv"), unsafe_allow_html=True)
