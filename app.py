@@ -33,12 +33,12 @@ def main():
             df = get_df_url(df,max_leads)
             st.write(df)
             st.markdown(download_csv(df,'linkedin_finder.csv',"Download csv"), unsafe_allow_html=True)
-'''        if st.button('Get leads (Premium)'):
-            max_leads = 100
-            email = st.text_input('Email Address')
-            st.write(email)
-            df = get_df_url(df,max_leads)
-            st.write('Send email to boaz@descalo.com')'''
+        #if st.button('Get leads (Premium)'):
+            #max_leads = 100
+            #email = st.text_input('Email Address')
+            #st.write(email)
+            #df = get_df_url(df,max_leads)
+            #st.write('Send email to boaz@descalo.com')'''
 
 
 
