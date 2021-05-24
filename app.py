@@ -9,6 +9,11 @@ def download_csv(df,fname,button_name):
      href = f'<a href="data:file/csv;base64,{b64}" download="{fname}">{button_name}</a>'
      return href
 
+st.set_page_config(
+     page_title="Linkedin Finder - Generate Leads Faster",
+     page_icon="crown",
+     layout="wide",
+     initial_sidebar_state="expanded",)
 
 def main():
     st.title('Linkedin Finder')
