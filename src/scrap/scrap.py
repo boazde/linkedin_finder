@@ -1,8 +1,5 @@
 import pandas as pd
-import re
 from urllib.parse import urlparse
-#search(query, tld='com', lang='en', num=10, start=0, stop=None, pause=2.0)
-#search (query,  tld='com', lang='en', tbs='0', safe='off', num=2, start=0, stop=2, domains=None, pause=2.0, tpe='', country='', extra_params=None, user_agent=None)
 try:
     from googlesearch import search
 except ImportError: 
@@ -11,31 +8,24 @@ except ImportError:
 
 def get_linkedin_url(query):
     urls = search(query, tld="com", num=10, stop=10, pause=2)
-    url=''
-    for u in urls:    
-        o = urlparse(u)    
-        if '/in/' in o.path and 'linkedin' in o.netloc :
-            url=u
+    for url in urls:
+        o = urlparse(url)
+        if '/in/' in o.path and 'linkedin' in o.netloc:
             return url
-    return url
+    return ''
 
 def get_google_urls(query):
     urls = search(query, tld="com", num=10, stop=10, pause=2)
-    for a in urls:
-        print(a)
+    for url in urls:
+        print(url)
 
 def get_df_url(df, max_rows):
-    df=df.head(max_rows)
-    df['linkedin'] =df.apply(lambda row : get_linkedin_url(row['First Name']+' '+ row['Last Name']+' '+row['Company']+ ' linkedin'), axis = 1)
-    #df['linkedin'] =df.apply(lambda row : parse_linkedin_url(get_google_urls(row[0]+row[1]+row[2] + '   linkedin')), axis = 1)
+    df = df.head(max_rows)
+    df['linkedin'] = df.apply(lambda row: get_linkedin_url(f"{row['First Name'] if pd.notna(row['First Name']) else ''} {row['Last Name'] if pd.notna(row['Last Name']) else ''} {row['Company'] if pd.notna(row['Company']) else ''} linkedin"), axis=1)
     return df
 
 def main():
-    df = pd.read_csv('data.csv')
-    df = get_df_url(df,100)
-    df.to_csv('data_out.csv')
-
+    get_google_urls('Zeev Avidan NyC Linkedin')
 
 if __name__ == "__main__":
     main()
-
