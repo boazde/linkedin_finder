@@ -25,7 +25,7 @@ def get_df_url(df, max_rows):
     return df
 
 def main():
-    get_google_urls('Zeev Avidan NyC Linkedin')
+    get_google_urls('James Child NyC Linkedin')
 
 if __name__ == "__main__":
     main()
