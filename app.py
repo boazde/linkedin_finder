@@ -28,7 +28,7 @@ def main():
         st.write(df)
         st.write("There are " , len(df.index)," items in the file" )
         if st.button('Get leads (Free)'):
-            max_leads = 50
+            max_leads = 150
             st.write('Working on the first '+ str(min(max_leads,len(df.index))) +' leads')
             df = get_df_url(df,max_leads)
             st.write(df)
