@@ -18,7 +18,7 @@ st.set_page_config(
 def main():
     st.title('Linkedin Finder')
 
-    st.header('Generate a list of Linkedin urls from a list of names')
+    st.header('A Must-Have App for Networking: Effortlessly Generate LinkedIn URLs from Name Lists!')
 
 
     uploaded_file = st.file_uploader("Upload a spreadsheet file of First Name; Last Name ;Company")
